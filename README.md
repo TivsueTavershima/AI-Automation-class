@@ -1,313 +1,242 @@
-# AI-Automation-class
+# AI Automation Learning Roadmap
 
+> A structured 3-month learning journey covering AI automation fundamentals, technical workflow building, applied AI, responsible automation, AI agents, RAG, and a practical capstone project.
 
-# AI Automation Foundations
+---
+
+## Overview
+
+This repository documents my journey into **AI Automation**, from foundational concepts to building practical, AI-powered business workflows.
+
+The learning program is structured across **three months**:
+
+| Month       | Focus                                      | Weeks      |
+| ----------- | ------------------------------------------ | ---------- |
+| **Month 1** | AI Automation Foundations                  | Weeks 1–4  |
+| **Month 2** | Technical Building & Applied AI Automation | Weeks 5–8  |
+| **Month 3** | Capstone, Mentorship & Hackathon           | Weeks 9–12 |
+
+The goal is to progress from understanding **what AI automation is** to designing, building, testing, documenting, and deploying practical automation workflows.
+
+Throughout the program, **n8n** serves as the primary hands-on automation platform.
+
+---
+
+# 🎯 Learning Objectives
+
+By the end of this learning journey, I aim to be able to:
+
+* Understand the fundamentals of AI automation
+* Identify business processes suitable for automation
+* Design automation workflows from trigger to outcome
+* Work with APIs, webhooks, JSON, and external services
+* Integrate AI models into automation workflows
+* Write and test effective prompts
+* Build conditional and decision-based workflows
+* Implement error handling and fallback mechanisms
+* Work with documents and business knowledge
+* Understand Retrieval-Augmented Generation (RAG)
+* Understand and build AI agent workflows
+* Apply responsible AI principles
+* Implement human-in-the-loop approval processes
+* Consider security, privacy, and governance
+* Build and document complete business automation solutions
+* Test workflows against normal, malformed, and edge-case inputs
+
+---
+
+# 🗺️ Learning Roadmap
+
+```text
+MONTH 1
+AI Automation Foundations
+        │
+        ├── Week 1: Automation Fundamentals
+        ├── Week 2: AI Fundamentals
+        ├── Week 3: Prompt Engineering
+        └── Week 4: No-Code / Low-Code Platforms
+        │
+        ▼
+MONTH 2
+Technical Building & Applied AI Automation
+        │
+        ├── Week 5: APIs, Webhooks & Data
+        ├── Week 6: AI-Powered Workflows
+        ├── Week 7: Business Process Automation & Responsible AI
+        └── Week 8: RAG, Documents & AI Agents
+        │
+        ▼
+MONTH 3
+Capstone, Mentorship & Hackathon
+        │
+        └── Weeks 9–12: Capstone Project
+```
+
+---
+
+# Month 1: AI Automation Foundations
 
 ## Week 1: Introduction to AI Automation & Automation Fundamentals
 
 **Modules:** M1–M2
-**Focus:** Understanding AI automation, workflow fundamentals, n8n, and human-in-the-loop automation.
 
+Week 1 establishes the foundation for understanding automation and how AI can be incorporated into automated workflows.
 
-## Overview
+### Topics Covered
 
-Week 1 focused on establishing the fundamental concepts required to understand and build AI-powered automation workflows.
-
-The goal was not only to learn how to use an automation platform, but also to understand how to identify processes that can be automated, structure those processes into workflows, and determine where AI and human intervention should be introduced.
-
-The major concepts covered were:
-
-* AI automation fundamentals
-* Traditional automation vs. AI automation
-* The Trigger → Action → Outcome model
-* Business process automation
+* What AI automation is
+* AI automation vs. traditional automation
+* The core automation loop:
+  **Trigger → Action → Outcome**
+* AI automation in business processes
+* Operations automation
+* HR automation
+* Customer support automation
+* Administrative automation
+* Why n8n is the primary hands-on platform
+* Setting up a free n8n Cloud account
 * Automation building blocks
+* Triggers
+* Actions
+* Conditions
 * Error handling
-* Human-in-the-loop automation
+* Human-in-the-loop principles
 
-# 1. What Is AI Automation?
-
-AI automation is the combination of **automation technologies and artificial intelligence** to perform tasks and workflows that may involve information processing, classification, decision-making, content generation, or other forms of intelligent processing.
-
-Traditional automation generally follows predefined rules.
-
-For example:
-
-```text
-IF a new form is submitted
-    THEN send an email
-```
-
-AI automation can introduce additional intelligence into the workflow:
-
-```text
-IF a new customer request is submitted
-    ↓
-AI analyzes the request
-    ↓
-Classify the request
-    ↓
-Determine the appropriate workflow
-    ↓
-Take the appropriate action
-```
-
-The important distinction is that traditional automation is typically based on explicit, deterministic rules, while AI can help workflows handle information that is less structured or requires interpretation.
-
-### Example
-
-A traditional workflow might check:
-
-```text
-IF invoice_amount > 1000
-    THEN send for approval
-```
-
-An AI-assisted workflow could process an invoice document, extract relevant information, classify the invoice, and then pass the extracted information into predefined business rules.
-
-AI therefore becomes one component inside a larger automation system.
-
----
-
-# 2. Traditional Automation vs. AI Automation
-
-Understanding the difference between these approaches is important when deciding how to design an automation.
-
-| Traditional Automation               | AI Automation                                                                  |
-| ------------------------------------ | ------------------------------------------------------------------------------ |
-| Primarily rule-based                 | Can incorporate AI-based interpretation                                        |
-| Works well with structured data      | Can work with structured and unstructured information                          |
-| Predictable inputs and outputs       | Can handle more variable inputs                                                |
-| Uses predefined logic                | Can use AI models for classification, extraction, summarization, or generation |
-| Usually deterministic                | AI components can introduce probabilistic behavior                             |
-| Best for repetitive rule-based tasks | Useful when tasks involve interpretation or language                           |
-
-This does not mean AI automation replaces traditional automation.
-
-In many practical systems, both approaches work together.
-
-For example:
-
-```text
-Traditional automation
-        +
-AI processing
-        +
-Business rules
-        +
-Human approval
-        =
-Complete automation workflow
-```
-
----
-
-# 3. The Core Automation Loop
-
-One of the foundational concepts covered in Week 1 was:
-
-# Trigger → Action → Outcome
-
-Every automation workflow needs something that starts it.
-
-That event is the **trigger**.
-
-The workflow then performs one or more **actions**, eventually producing an **outcome**.
-
-### Example
-
-```text
-TRIGGER
-New customer submits a support form
-        ↓
-ACTION
-Workflow receives the request
-        ↓
-ACTION
-AI analyzes and categorizes the request
-        ↓
-ACTION
-Request is routed to the appropriate team
-        ↓
-OUTCOME
-Support request is successfully categorized and routed
-```
-
-This model provides a simple way to break down complex processes.
-
-### Trigger
-
-A trigger determines when an automation should begin.
-
-Examples include:
-
-* A form submission
-* A new email
-* A scheduled time
-* A webhook request
-* A new database record
-* A new customer
-* A manually initiated workflow
-
-### Action
-
-An action is something the workflow performs after it has been triggered.
-
-Examples:
-
-* Send an email
-* Create a database record
-* Call an API
-* Send a notification
-* Update a spreadsheet
-* Process information with an AI model
-
-### Outcome
-
-The outcome represents the result of the workflow.
-
-Examples:
-
-* Customer receives a response
-* Record is created
-* Support ticket is assigned
-* Report is generated
-* Notification is sent
-* Task is created
-
----
-
-# 4. Where AI Automation Fits in Business Processes
-
-AI automation can be applied across many areas of an organization.
-
-The key is to identify repetitive processes where automation can reduce manual effort while maintaining appropriate oversight.
-
-## Operations
-
-Potential use cases include:
-
-* Data processing
-* Workflow routing
-* Notifications
-* Report generation
-* Document processing
-* Internal task management
-
-Example:
-
-```text
-New operational request
-        ↓
-AI categorizes request
-        ↓
-Workflow determines department
-        ↓
-Request is assigned
-        ↓
-Team receives notification
-```
-
----
-
-## Human Resources
-
-AI automation can support processes such as:
-
-* Employee onboarding
-* Document collection
-* Interview scheduling
-* Internal notifications
-* FAQ responses
-* Employee information processing
-
-Example:
-
-```text
-New employee created
-        ↓
-Create onboarding tasks
-        ↓
-Send required documents
-        ↓
-Notify relevant departments
-        ↓
-Track onboarding progress
-```
-
----
-
-## Customer Support
-
-Customer support is another area where AI automation can be useful.
-
-Possible workflows include:
-
-* Ticket classification
-* Request routing
-* Response drafting
-* Conversation summarization
-* Priority classification
-* Frequently asked question handling
-
-Example:
-
-```text
-Customer submits support request
-        ↓
-AI analyzes request
-        ↓
-Classify request
-        ↓
-Determine priority
-        ↓
-Route to support team
-        ↓
-Generate response draft
-```
-
----
-
-## Administration
-
-Administrative workflows often contain repetitive tasks that can be automated.
-
-Examples include:
-
-* Data entry
-* Document processing
-* Notifications
-* Approval workflows
-* Scheduling
-* Report generation
-* Record updates
-
-The objective is not simply to automate everything.
-
-Instead, the goal is to determine:
-
-> **Which parts of the process should be automated, which require AI, and which should remain under human control?**
-
----
-
-# 5. Course Tool Strategy: Why n8n?
-
-For the practical component of the course, **n8n** is being used as the primary hands-on automation platform.
-
-n8n provides a visual environment for creating workflows by connecting different services and processing steps.
-
-Instead of manually writing every integration from scratch, workflows can be assembled using nodes that represent different operations.
-
-A simplified workflow might look like:
+### Core Concept
 
 ```text
 Trigger
    ↓
-Get Data
+Action
+   ↓
+Outcome
+```
+
+The week focuses on understanding how a business process can be broken down into individual steps and converted into an automated workflow.
+
+Human-in-the-loop principles are introduced here and will continue throughout the program.
+
+---
+
+# Week 2: AI Fundamentals for Automation
+
+**Module:** M3
+
+Week 2 focuses on understanding the AI technologies that power modern automation workflows.
+
+### Topics Covered
+
+* What Large Language Models (LLMs) are
+* How LLMs generate text
+* AI capabilities inside automated workflows
+* AI limitations
+* Introduction to AI agents
+* Selecting an appropriate AI model for an automation task
+* Ethical considerations
+* Practical considerations when using AI in business workflows
+
+### Key Learning Area
+
+A major focus is understanding that AI is a component of an automation system rather than the entire automation itself.
+
+For example:
+
+```text
+Business Event
+      ↓
+Automation Workflow
+      ↓
+AI Processing
+      ↓
+Business Rules
+      ↓
+Action
+      ↓
+Outcome
+```
+
+The week also introduces AI agents conceptually. Hands-on agent development will take place later in Week 8.
+
+---
+
+# Week 3: Prompt Engineering
+
+**Module:** M4
+
+Week 3 focuses on designing prompts that produce reliable and useful results when AI models are integrated into automation workflows.
+
+### Topics Covered
+
+* Prompt structure
+* Prompt engineering best practices
+* Zero-shot prompting
+* Few-shot prompting
+* System prompts
+* User prompts
+* Structured output
+* JSON responses
+* Prompt testing
+* Prompt iteration
+* Reliability
+* Common prompting pitfalls
+
+### Structured Output
+
+Automation workflows often need AI responses in a predictable format.
+
+For example:
+
+```json
+{
+  "category": "support",
+  "priority": "high",
+  "sentiment": "negative"
+}
+```
+
+Structured output makes it easier for downstream workflow steps to process AI-generated information.
+
+### Key Goal
+
+Learn how to design and test prompts that behave consistently enough to be used within automated workflows.
+
+---
+
+# Week 4: No-Code / Low-Code Platforms
+
+**Module:** M5
+
+Week 4 explores the broader automation platform landscape and provides practical experience building workflows.
+
+### Platforms Covered
+
+* n8n
+* Make
+* Zapier
+* Microsoft Power Automate
+
+### Topics Covered
+
+* Platform landscape
+* Beginner accessibility
+* AI and agent tooling
+* API access
+* Pricing and cost models
+* Nodes
+* Connections
+* Workflow logic
+* Building an end-to-end workflow in n8n
+* Matching a platform to a particular use case
+* Matching tools to career requirements
+
+### Practical Goal
+
+Build a first complete workflow using n8n:
+
+```text
+Trigger
    ↓
 Process Data
-   ↓
-AI Analysis
    ↓
 Condition
    ↓
@@ -316,357 +245,642 @@ Action
 Outcome
 ```
 
-Working with n8n also provides practical exposure to concepts that are important beyond the platform itself, including:
+The focus is not only learning a platform but understanding **why a particular automation platform may be appropriate for a particular business or technical context**.
 
-* APIs
+---
+
+# Month 2: Technical Building & Applied AI Automation
+
+Month 2 moves from foundational concepts into more technical and practical automation development.
+
+---
+
+# Week 5: APIs, Webhooks & Data
+
+**Module:** M6
+
+Week 5 introduces the technical foundations required to connect automation workflows to external applications and services.
+
+### Topics Covered
+
+* What an API is
+* How workflows interact with APIs
 * Webhooks
-* Data transformation
-* Conditional logic
-* Authentication
-* Workflow execution
-* Error handling
-* External service integration
-
-The purpose of learning n8n is therefore not only to learn one tool, but to understand the architecture and thinking behind workflow automation.
-
----
-
-# 6. Setting Up n8n Cloud
-
-As part of Week 1, I set up a free n8n Cloud account.
-
-The initial setup involved becoming familiar with:
-
-* The n8n interface
-* Workspaces
-* Workflows
-* Nodes
-* Workflow execution
-* Connections between nodes
-
-The basic workflow-building process can be summarized as:
-
-```text
-Create workflow
-      ↓
-Add trigger
-      ↓
-Add actions
-      ↓
-Configure nodes
-      ↓
-Connect workflow steps
-      ↓
-Test workflow
-      ↓
-Review execution
-```
-
-Testing workflows is particularly important because an automation that works with one input may behave differently with another.
-
----
-
-# 7. Automation Building Blocks
-
-Automation workflows are made up of several fundamental components.
-
-## 7.1 Triggers
-
-A trigger starts a workflow.
-
-Examples:
-
-```text
-Webhook
-Scheduled event
-Form submission
-New email
-Database event
-Manual execution
-```
-
----
-
-## 7.2 Actions
-
-Actions perform work inside the workflow.
-
-Examples:
-
-```text
-Send email
-Create record
-Update database
-Call API
-Send notification
-Process data
-Run AI analysis
-```
-
----
-
-## 7.3 Conditions
-
-Conditions allow a workflow to make decisions.
-
-For example:
-
-```text
-IF customer_type == "premium"
-        ↓
-    Priority handling
-
-ELSE
-        ↓
-    Standard handling
-```
-
-Conditions are important because not every input should follow the same path.
-
----
-
-## 7.4 Error Handling
-
-Automation workflows can fail for many reasons.
-
-Examples include:
-
-* API failure
-* Invalid input
-* Missing data
-* Authentication failure
-* Service downtime
-* Unexpected response format
-* Network problems
-
-A reliable workflow should therefore consider what happens when something goes wrong.
-
-For example:
-
-```text
-API Request
-     ↓
-Success? ─── YES → Continue workflow
-     |
-     NO
-     ↓
-Handle error
-     ↓
-Log problem
-     ↓
-Notify responsible person
-```
-
-Error handling is important because automation should not simply assume that every operation will succeed.
-
----
-
-# 8. Human-in-the-Loop Automation
-
-A major concept introduced during Week 1 was **Human-in-the-Loop (HITL)** automation.
-
-Human-in-the-loop means that a person remains involved at an appropriate point in an automated workflow.
-
-Instead of:
-
-```text
-Input → AI → Automatic Decision → Action
-```
-
-a workflow may use:
-
-```text
-Input
-  ↓
-AI Processing
-  ↓
-Human Review
-  ↓
-Approval / Rejection
-  ↓
-Action
-```
-
-This can be useful when decisions require:
-
-* Human judgment
-* Business approval
-* Verification
-* Risk assessment
-* Compliance review
-* Exception handling
+* Event-driven automation
+* JSON data
+* API keys
+* OAuth fundamentals
+* Credential management
+* Credential security
+* HTTP requests
+* Debugging HTTP requests inside n8n
 
 ### Example
 
-Consider an automated expense approval workflow:
-
 ```text
-Employee submits expense
+External Application
         ↓
-AI extracts information
+      API
         ↓
-Workflow checks business rules
+      n8n
         ↓
-Human reviews unusual expense
+Process Data
         ↓
-Approved
-        ↓
-Payment process continues
+Perform Action
 ```
 
-The automation handles repetitive processing while the human remains responsible for an important decision.
+Understanding APIs and webhooks is essential for connecting automation workflows to real-world applications.
 
 ---
 
-# 9. Key Lessons From Week 1
+# Week 6: Building AI-Powered Workflows
 
-The main lessons from Week 1 were:
+**Module:** M7
 
-### 1. Automation starts with the process
+Week 6 focuses on integrating AI capabilities into practical automation workflows.
 
-Before selecting a tool, it is important to understand the process being automated.
+### Topics Covered
 
-### 2. Not everything needs AI
+* Connecting AI models to n8n
+* AI-powered workflow design
+* Conditional branches
+* Decision logic
+* Error handling
+* Fallback queues
+* Edge-case testing
+* Malformed input testing
+* Workflow documentation
+* Workflow handoff
 
-Some tasks can be handled perfectly well with traditional rule-based automation.
-
-AI becomes useful when a workflow needs capabilities such as:
-
-* Understanding language
-* Classification
-* Summarization
-* Information extraction
-* Content generation
-* Interpretation of less-structured information
-
-### 3. Workflows should be designed as systems
-
-A useful automation is more than a single AI prompt.
-
-It may involve:
+### Example Workflow
 
 ```text
 Trigger
    ↓
-Data
+Collect Data
    ↓
-Processing
+AI Analysis
    ↓
-AI
-   ↓
-Business Rules
-   ↓
-Human Review
-   ↓
-Action
-   ↓
-Outcome
+Condition
+   ├── Path A → Action
+   │
+   └── Path B → Human Review
+                    ↓
+                 Action
 ```
 
-### 4. Reliability matters
-
-An automation should account for unexpected inputs and failures.
-
-Error handling, validation, logging, and human intervention are important parts of a reliable workflow.
-
-### 5. Human oversight remains important
-
-AI automation should be designed with appropriate human involvement, especially for decisions that have significant consequences.
+The goal is to move beyond simple AI interactions and build workflows that can make controlled decisions based on AI output and business rules.
 
 ---
 
-# 10. Week 1 Learning Summary
+# Week 7: Business Process Automation & Responsible AI
 
-| Topic                  | What I Learned                                                     |
-| ---------------------- | ------------------------------------------------------------------ |
-| AI Automation          | Combining AI capabilities with automated workflows                 |
-| Traditional Automation | Rule-based and predefined process execution                        |
-| Automation Loop        | Trigger → Action → Outcome                                         |
-| Business Automation    | Applying automation to operations, HR, support, and administration |
-| n8n                    | Visual workflow automation platform used for practical learning    |
-| Triggers               | Events that start workflows                                        |
-| Actions                | Operations performed by workflows                                  |
-| Conditions             | Rules that control workflow paths                                  |
-| Error Handling         | Managing failures and unexpected conditions                        |
-| Human-in-the-Loop      | Keeping humans involved where appropriate                          |
+**Modules:** M9, M11
 
----
+Week 7 focuses on applying automation to real business processes while considering responsible AI practices.
 
-# 11. Week 1 Architecture
+### Topics Covered
 
-The concepts covered can be represented as:
+* Mapping a business process end-to-end
+* Identifying automation opportunities
+* Identifying bottlenecks
+* Security fundamentals
+* AI governance
+* Data privacy
+* Compliance considerations
+* Bias and fairness
+* Human approval checkpoints
+
+### Business Process Mapping
+
+A process can be analyzed as:
 
 ```text
-                    ┌──────────────┐
-                    │   TRIGGER    │
-                    └──────┬───────┘
-                           ↓
-                    ┌──────────────┐
-                    │     DATA     │
-                    └──────┬───────┘
-                           ↓
-                    ┌──────────────┐
-                    │  PROCESSING  │
-                    └──────┬───────┘
-                           ↓
-                    ┌──────────────┐
-                    │ AI / RULES   │
-                    └──────┬───────┘
-                           ↓
-                    ┌──────────────┐
-                    │  CONDITION   │
-                    └──────┬───────┘
-                           ↓
-                 ┌─────────┴─────────┐
-                 ↓                   ↓
-          ┌─────────────┐     ┌─────────────┐
-          │   HUMAN     │     │ AUTOMATED   │
-          │   REVIEW    │     │   ACTION    │
-          └──────┬──────┘     └──────┬──────┘
-                 │                   │
-                 └─────────┬─────────┘
-                           ↓
-                    ┌──────────────┐
-                    │   OUTCOME    │
-                    └──────────────┘
+Current Process
+      ↓
+Identify Repetitive Tasks
+      ↓
+Identify Bottlenecks
+      ↓
+Identify AI Opportunities
+      ↓
+Design Automation
+      ↓
+Add Controls
+      ↓
+Human Approval
+      ↓
+Automated Outcome
 ```
+
+The focus is on designing automation that is not only functional but also responsible and appropriate for the business environment.
 
 ---
 
-# 12. What's Next?
+# Week 8: Data, Documents, RAG & AI Agents
 
-Week 1 established the conceptual foundation for AI automation.
+**Modules:** M10, M8
 
-The next stage will focus on building more practical workflows, connecting services, working with data, and applying AI within real automation scenarios.
+Week 8 introduces more advanced AI automation concepts, including **Retrieval-Augmented Generation (RAG)** and AI agents.
 
-My goal throughout the learning process is to move from:
+### Topics Covered
+
+* Retrieval-Augmented Generation (RAG)
+* Document parsing
+* Data extraction
+* Knowledge grounding
+* Business knowledge bases
+* AI agents
+* Agent tools
+* Agent memory
+* Tool calling
+* Multi-step agent workflows
+* Combining RAG and AI agents
+
+---
+
+## Retrieval-Augmented Generation (RAG)
+
+RAG allows an AI system to retrieve relevant information from an external knowledge source before generating a response.
+
+A simplified RAG workflow looks like:
 
 ```text
-Understanding concepts
-        ↓
-Building simple workflows
-        ↓
-Integrating services
-        ↓
-Adding AI capabilities
-        ↓
-Handling exceptions
-        ↓
-Building reliable real-world automations
+User Question
+      ↓
+Search Knowledge Base
+      ↓
+Retrieve Relevant Information
+      ↓
+Provide Context to AI
+      ↓
+Generate Grounded Response
+```
+
+This allows automation workflows to use organization-specific information instead of relying only on the model's general knowledge.
+
+---
+
+## AI Agents
+
+Week 8 also introduces hands-on AI agent development.
+
+An AI agent can be designed to:
+
+```text
+Receive Task
+    ↓
+Understand Task
+    ↓
+Choose Tool
+    ↓
+Execute Tool
+    ↓
+Review Result
+    ↓
+Choose Next Step
+    ↓
+Complete Task
+```
+
+The focus will be on understanding tools, memory, tool calling, and multi-step workflows.
+
+---
+
+## Combining RAG + Agents
+
+A more advanced workflow can combine both concepts:
+
+```text
+User Request
+      ↓
+AI Agent
+      ↓
+Retrieve Business Knowledge
+      ↓
+Analyze Information
+      ↓
+Use Required Tools
+      ↓
+Make Controlled Decision
+      ↓
+Human Approval
+      ↓
+Final Action
+```
+
+This represents a transition from basic workflow automation toward more sophisticated AI-powered automation systems.
+
+---
+
+# Month 3: Capstone, Mentorship & Hackathon
+
+## Weeks 9–12: Capstone Project Phase
+
+**Module:** M12
+
+The final month focuses on applying the knowledge gained throughout the program to a complete capstone project.
+
+The capstone is designed to bring together:
+
+* Process mapping
+* Prompt engineering
+* AI integration
+* APIs
+* Data processing
+* Workflow logic
+* Security
+* Error handling
+* Human approval
+* Testing
+* Documentation
+
+---
+
+# Capstone Track A: AI Customer Support Automation
+
+### Workflow
+
+```text
+Gmail Trigger
+      ↓
+Receive Customer Request
+      ↓
+AI Classification
+      ↓
+Conditional Branch
+      ↓
+Draft Reply
+      ↓
+Human Approval
+      ↓
+Send Reply
+      ↓
+Log Activity
+      ↓
+Error/Fallback Queue
+```
+
+### Core Components
+
+* Gmail trigger
+* AI classification
+* Conditional routing
+* AI-generated response draft
+* Human approval
+* Email delivery
+* Logging
+* Error handling
+* Fallback queue
+
+The workflow demonstrates how AI can assist customer support while keeping a human involved before an external response is sent.
+
+---
+
+# Capstone Track B: Recruitment CV Screening Workflow
+
+### Workflow
+
+```text
+Form Trigger
+      ↓
+CV / Document Upload
+      ↓
+Document Parsing
+      ↓
+AI Field Extraction
+      ↓
+AI Scoring Against Rubric
+      ↓
+Conditional Routing
+      ↓
+Human Review Queue
+      ↓
+Notification
+```
+
+### Core Components
+
+* Form trigger
+* Document processing
+* Information extraction
+* AI-based field extraction
+* Rubric-based evaluation
+* Conditional routing
+* Human review
+* Notifications
+
+The workflow brings together document processing, structured AI output, business rules, and human oversight.
+
+---
+
+#Capstone Testing
+
+The capstone will be tested against both normal and unexpected scenarios.
+
+### Example Test Cases
+
+#### Normal Request
+
+```text
+Valid input
+    ↓
+AI processes request
+    ↓
+Workflow executes successfully
+```
+
+#### Escalation
+
+```text
+Request requires additional review
+    ↓
+Workflow identifies escalation
+    ↓
+Human approval queue
+```
+
+#### Malformed Input
+
+```text
+Invalid or incomplete input
+    ↓
+Validation fails
+    ↓
+Error handling
+    ↓
+Fallback queue
+```
+
+#### External Service Failure
+
+```text
+API unavailable
+    ↓
+Request fails
+    ↓
+Error captured
+    ↓
+Fallback process
+    ↓
+Notification / retry
+```
+
+Testing these scenarios helps ensure that the workflow is designed for real-world conditions rather than only the ideal path.
+
+---
+
+#Responsible Automation Principles
+
+Responsible AI and automation are incorporated throughout the learning journey.
+
+Key principles include:
+
+### Human Oversight
+
+Important decisions should have appropriate human review.
+
+### Data Privacy
+
+Sensitive information should be handled appropriately and only used for legitimate purposes.
+
+### Security
+
+Credentials, API keys, and authentication information should be protected.
+
+### Transparency
+
+Automation processes should be understandable and documented.
+
+### Bias Awareness
+
+AI-assisted decisions should be evaluated for potential bias and fairness concerns.
+
+### Error Handling
+
+Workflows should anticipate failures rather than assuming every execution will succeed.
+
+---
+
+#Core Automation Architecture
+
+The learning journey gradually builds toward the following general architecture:
+
+```text
+                    ┌───────────────┐
+                    │    TRIGGER    │
+                    └───────┬───────┘
+                            ↓
+                    ┌───────────────┐
+                    │     DATA      │
+                    └───────┬───────┘
+                            ↓
+                    ┌───────────────┐
+                    │   PROCESSING  │
+                    └───────┬───────┘
+                            ↓
+                    ┌───────────────┐
+                    │ AI / LOGIC    │
+                    └───────┬───────┘
+                            ↓
+                    ┌───────────────┐
+                    │  CONDITION    │
+                    └───────┬───────┘
+                            ↓
+                 ┌──────────┴──────────┐
+                 ↓                     ↓
+          ┌─────────────┐       ┌─────────────┐
+          │   HUMAN     │       │ AUTOMATED   │
+          │   REVIEW    │       │   ACTION    │
+          └──────┬──────┘       └──────┬──────┘
+                 │                     │
+                 └──────────┬──────────┘
+                            ↓
+                    ┌───────────────┐
+                    │    OUTCOME    │
+                    └───────────────┘
+```
+
+This architecture represents the core idea behind the program:
+
+> **Automation should connect events, data, AI, business logic, human oversight, and actions into a reliable end-to-end process.**
+
+---
+
+#Primary Tools & Technologies
+
+The learning journey will involve exposure to several tools and technologies.
+
+| Category       | Technologies / Concepts                 |
+| -------------- | --------------------------------------- |
+| Automation     | n8n, Make, Zapier, Power Automate       |
+| AI             | Large Language Models, AI APIs          |
+| Workflow       | Triggers, actions, conditions, branches |
+| Integration    | APIs, webhooks, HTTP requests           |
+| Data           | JSON, structured data, documents        |
+| Authentication | API keys, OAuth                         |
+| AI Techniques  | Prompt engineering, structured output   |
+| Knowledge      | RAG, document parsing                   |
+| Agents         | Tools, memory, tool calling             |
+| Governance     | Security, privacy, compliance           |
+| Reliability    | Error handling, fallback workflows      |
+| Oversight      | Human-in-the-loop                       |
+
+---
+
+#Learning Progression
+
+The program follows a progression from foundational knowledge to practical implementation:
+
+```text
+                    FOUNDATIONS
+                         ↓
+               AI & Automation Concepts
+                         ↓
+                Prompt Engineering
+                         ↓
+                Workflow Platforms
+                         ↓
+               APIs & Webhooks
+                         ↓
+               AI-Powered Workflows
+                         ↓
+             Business Process Automation
+                         ↓
+                Responsible AI
+                         ↓
+                  RAG & Documents
+                         ↓
+                     AI Agents
+                         ↓
+                  CAPSTONE PROJECT
+                         ↓
+              Real-World AI Automation
 ```
 
 ---
 
-## Conclusion
+# Repository Structure
 
-Week 1 provided an important foundation for understanding AI automation.
+The repository will be organized around the three-month learning journey.
 
-The biggest lesson was that successful automation is not simply about connecting tools together. It requires understanding the underlying business process, identifying what can be automated, determining where AI adds value, designing appropriate controls, and keeping humans involved where necessary.
+```text
+ai-automation-learning/
+│
+├── README.md
+│
+├── month-01-foundations/
+│   │
+│   ├── week-01-automation-fundamentals/
+│   ├── week-02-ai-fundamentals/
+│   ├── week-03-prompt-engineering/
+│   └── week-04-automation-platforms/
+│
+├── month-02-applied-automation/
+│   │
+│   ├── week-05-apis-webhooks-data/
+│   ├── week-06-ai-workflows/
+│   ├── week-07-business-automation-responsible-ai/
+│   └── week-08-rag-documents-agents/
+│
+└── month-03-capstone/
+    │
+    ├── track-a-customer-support/
+    ├── track-b-cv-screening/
+    ├── testing/
+    └── documentation/
+```
 
-**Progress: Week 1 — Completed **
+---
 
-**Focus:** AI Automation Foundations
-**Modules:** M1–M2
-**Core Model:** Trigger → Action → Outcome
-**Key Principle:** Automate intelligently, reliably, and with appropriate human oversight.
+# Documentation Approach
 
+Each week will contain documentation covering:
+
+1. **Concepts learned**
+2. **Technical notes**
+3. **Practical exercises**
+4. **Workflow diagrams**
+5. **n8n workflows**
+6. **Experiments**
+7. **Challenges encountered**
+8. **Solutions**
+9. **Lessons learned**
+10. **Future improvements**
+
+The objective is to document not just the final result, but also the learning and development process behind each automation.
+
+---
+
+# Expected Outcome
+
+By the completion of the three-month program, the goal is to have progressed from understanding basic automation concepts to designing and building complete AI-powered business workflows.
+
+The final capstone should demonstrate the ability to:
+
+```text
+Understand a business problem
+        ↓
+Map the existing process
+        ↓
+Identify automation opportunities
+        ↓
+Design the workflow
+        ↓
+Integrate APIs / data
+        ↓
+Add AI capabilities
+        ↓
+Implement business rules
+        ↓
+Add human approval
+        ↓
+Handle errors
+        ↓
+Test edge cases
+        ↓
+Document the solution
+```
+
+---
+
+# Learning Philosophy
+
+The focus of this journey is **learning by building**.
+
+Rather than only studying AI automation concepts theoretically, each stage is intended to connect knowledge with practical implementation.
+
+The progression is:
+
+**Learn → Build → Test → Document → Improve**
+
+This repository will serve as a record of that progression and a portfolio of the automation workflows, experiments, technical notes, and capstone work completed throughout the program.
+
+---
+
+## Progress Tracker
+
+| Week       | Topic                                        | Status         |
+| ---------- | -------------------------------------------- | -------------- |
+| Week 1     | AI Automation & Automation Fundamentals      | 🔄 In Progress |
+| Week 2     | AI Fundamentals for Automation               | ⏳ Upcoming     |
+| Week 3     | Prompt Engineering                           | ⏳ Upcoming     |
+| Week 4     | No-Code / Low-Code Platforms                 | ⏳ Upcoming     |
+| Week 5     | APIs, Webhooks & Data                        | ⏳ Upcoming     |
+| Week 6     | AI-Powered Workflows                         | ⏳ Upcoming     |
+| Week 7     | Business Process Automation & Responsible AI | ⏳ Upcoming     |
+| Week 8     | RAG, Documents & AI Agents                   | ⏳ Upcoming     |
+| Weeks 9–12 | Capstone Project                             | ⏳ Upcoming     |
+
+---
+
+# Final Goal
+
+The ultimate goal of this learning journey is to develop the ability to design **practical, reliable, secure, and responsible AI automation systems** that solve real business problems.
+
+> **From understanding automation fundamentals to building AI-powered business workflows.**
+
+**Learning Status:** In Progress
+**Duration:** 3 Months
+**Primary Platform:** n8n
+**Focus:** AI Automation, Workflow Engineering, Applied AI & Business Process Automation
