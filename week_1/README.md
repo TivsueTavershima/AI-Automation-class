@@ -5,7 +5,6 @@
 
 ## Week 1: Introduction to AI Automation & Automation Fundamentals
 
-**Modules:** M1–M2
 **Focus:** Understanding AI automation, workflow fundamentals, n8n, and human-in-the-loop automation.
 
 
